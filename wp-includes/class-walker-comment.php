@@ -161,7 +161,7 @@ class Walker_Comment extends Walker {
 	 * @see Walker::start_el()
 	 * @see wp_list_comments()
 	 * @global int        $comment_depth
-	 * @global WP_Comment $comment
+	 * @global WP_Comment $comment       Global comment object.
 	 *
 	 * @param string     $output  Used to append additional content. Passed by reference.
 	 * @param WP_Comment $comment Comment data object.
@@ -224,7 +224,7 @@ class Walker_Comment extends Walker {
 			$output .= ob_get_clean();
 			return;
 		}
-		if ( 'div' == $args['style'] ) {
+		if ( 'div' === $args['style'] ) {
 			$output .= "</div><!-- #comment-## -->\n";
 		} else {
 			$output .= "</li><!-- #comment-## -->\n";
@@ -243,7 +243,7 @@ class Walker_Comment extends Walker {
 	 * @param array      $args    An array of arguments.
 	 */
 	protected function ping( $comment, $depth, $args ) {
-		$tag = ( 'div' == $args['style'] ) ? 'div' : 'li';
+		$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
 		?>
 		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( '', $comment ); ?>>
 			<div class="comment-body">
@@ -287,7 +287,7 @@ class Walker_Comment extends Walker {
 	 * @param array      $args    An array of arguments.
 	 */
 	protected function comment( $comment, $depth, $args ) {
-		if ( 'div' == $args['style'] ) {
+		if ( 'div' === $args['style'] ) {
 			$tag       = 'div';
 			$add_below = 'comment';
 		} else {
@@ -305,7 +305,7 @@ class Walker_Comment extends Walker {
 		}
 		?>
 		<<?php echo $tag; ?> <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?> id="comment-<?php comment_ID(); ?>">
-		<?php if ( 'div' != $args['style'] ) : ?>
+		<?php if ( 'div' !== $args['style'] ) : ?>
 		<div id="div-comment-<?php comment_ID(); ?>" class="comment-body">
 		<?php endif; ?>
 		<div class="comment-author vcard">
@@ -335,7 +335,7 @@ class Walker_Comment extends Walker {
 
 		<div class="comment-meta commentmetadata"><a href="<?php echo esc_url( get_comment_link( $comment, $args ) ); ?>">
 			<?php
-				/* translators: 1: comment date, 2: comment time */
+				/* translators: 1: Comment date, 2: Comment time. */
 				printf( __( '%1$s at %2$s' ), get_comment_date( '', $comment ), get_comment_time() );
 			?>
 				</a>
@@ -373,7 +373,7 @@ class Walker_Comment extends Walker {
 		);
 		?>
 
-		<?php if ( 'div' != $args['style'] ) : ?>
+		<?php if ( 'div' !== $args['style'] ) : ?>
 		</div>
 		<?php endif; ?>
 		<?php
@@ -430,7 +430,7 @@ class Walker_Comment extends Walker {
 						<a href="<?php echo esc_url( get_comment_link( $comment, $args ) ); ?>">
 							<time datetime="<?php comment_time( 'c' ); ?>">
 								<?php
-									/* translators: 1: comment date, 2: comment time */
+									/* translators: 1: Comment date, 2: Comment time. */
 									printf( __( '%1$s at %2$s' ), get_comment_date( '', $comment ), get_comment_time() );
 								?>
 							</time>

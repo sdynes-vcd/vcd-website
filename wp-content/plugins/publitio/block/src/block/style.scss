@@ -1,0 +1,17 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+
+.publitioInput input {
+	/*display:none;*/
+	position:absolute;
+	z-index:99999;
+	left: -5000px;
+}
+
+.publitioIcon {
+  padding: 5px;
+  margin-bottom: 3px;
+}
