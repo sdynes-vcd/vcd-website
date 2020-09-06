@@ -9,7 +9,6 @@ wp-content/*
 !wp-content/themes/
 
 wp-config.php
-wp-content/uploads
 
 # ignore these plugins
 wp-content/plugins/hello.php
